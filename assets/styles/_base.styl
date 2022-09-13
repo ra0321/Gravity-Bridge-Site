@@ -1,0 +1,57 @@
+html,
+body
+  background-color var(--bg)
+  color var(--text)
+
+html
+  font 400 100%/1.5 $font-family-sans-serif
+  font-feature-settings 'kern' on, 'liga' on, 'calt' on, 'zero' on
+  // TODO: figure out why nuxt isn't using postcss-font-variant to generate these vendor prefixes
+  -webkit-font-feature-settings 'kern' on, 'liga' on, 'calt' on, 'zero' on
+  text-size-adjust 100%
+  -moz-osx-font-smoothing grayscale
+  font-smoothing antialiased
+  font-variant-ligatures contextual common-ligatures
+  font-kerning normal
+  text-rendering optimizeLegibility
+
+h1, h2, h3, h4, h5, h6
+  margin-top 0
+  margin-bottom 0
+
+@supports (font-variation-settings: normal)
+  html
+    font-family $font-family-sans-serif-var
+    font-weight $font-weight-normal-base
+
+body
+  overflow-x hidden
+  margin 0
+
+@media $breakpoint-large-max
+  body.mobile-nav-open
+    overflow hidden
+
+*,
+*::before,
+*::after
+  box-sizing border-box
+  margin 0
+
+::selection
+  background var(--title)
+  color var(--bg)
+
+a
+  text-decoration none
+  color var(--link)
+
+  &:hover,
+  &:focus
+    color var(--link-hover)
+
+  &:focus
+    outline 1px dotted
+
+button
+  reset-button()

@@ -1,0 +1,88 @@
+/*
+
+  TOOLTIP
+  Styling v-tooltip: https://akryum.github.io/v-tooltip/#/
+
+*/
+
+.tooltip
+  display block !important
+  z-index $z-index-tooltip
+
+  .tooltip-inner
+    max-width 18rem
+    background var(--title)
+    color var(--bg)
+    border-radius $border-radius-3
+    padding var(--spacing-2) var(--spacing-4)
+
+  .tooltip-arrow
+    width 0
+    height 0
+    border-style solid
+    position absolute
+    margin $border-radius-3
+    border-color var(--title)
+    z-index 1
+
+  &[x-placement^="top"]
+    margin-bottom var(--spacing-3)
+
+    .tooltip-arrow
+      border-width var(--spacing-3) var(--spacing-3) 0 var(--spacing-3)
+      border-left-color transparent !important
+      border-right-color transparent !important
+      border-bottom-color transparent !important
+      bottom calc(-1 * var(--spacing-3) + 1px)
+      left calc(50% - var(--spacing-3))
+      margin-top 0
+      margin-bottom 0
+
+  &[x-placement^="bottom"]
+    margin-top var(--spacing-3)
+
+    .tooltip-arrow
+      border-width 0 var(--spacing-3) var(--spacing-3) var(--spacing-3)
+      border-left-color transparent !important
+      border-right-color transparent !important
+      border-top-color transparent !important
+      top calc(-1 * var(--spacing-3) + 1px)
+      left calc(50% - var(--spacing-3))
+      margin-top 0
+      margin-bottom 0
+
+  &[x-placement^="right"]
+    margin-left var(--spacing-3)
+
+    .tooltip-arrow
+      border-width var(--spacing-3) var(--spacing-3) var(--spacing-3) 0
+      border-left-color transparent !important
+      border-top-color transparent !important
+      border-bottom-color transparent !important
+      left calc(-1 * var(--spacing-3) + 1px)
+      top calc(50% - var(--spacing-3))
+      margin-left 0
+      margin-right 0
+
+  &[x-placement^="left"]
+    margin-right var(--spacing-3)
+
+    .tooltip-arrow
+      border-width var(--spacing-3) 0 var(--spacing-3) var(--spacing-3)
+      border-top-color transparent !important
+      border-right-color transparent !important
+      border-bottom-color transparent !important
+      right calc(-1 * var(--spacing-3) + 1px)
+      top calc(50% - var(--spacing-3))
+      margin-left 0
+      margin-right 0
+
+  &[aria-hidden='true']
+    visibility hidden
+    opacity 0
+    transition opacity .2s, visibility .2s
+
+  &[aria-hidden='false']
+    visibility visible
+    opacity 1
+    transition opacity .2s

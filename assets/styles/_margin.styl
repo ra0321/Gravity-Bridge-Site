@@ -1,0 +1,33 @@
+_generate-margin-top($size)
+  margin-top 'var(--spacing-%s)' % $size
+
+_generate-margin-bottom($size)
+  margin-bottom 'var(--spacing-%s)' % $size
+
+_generate-margin-x($size)
+  margin-top 'var(--spacing-%s)' % $size
+  margin-bottom 'var(--spacing-%s)' % $size
+
+_generate-margin-y($size)
+  margin-left 'var(--spacing-%s)' % $size
+  margin-right 'var(--spacing-%s)' % $size
+
+:root
+  for $size in 1...13
+    .mt-{$size}
+      _generate-margin-top($size)
+
+:root
+  for $size in 1...13
+    .mb-{$size}
+      _generate-margin-bottom($size)
+
+:root
+  for $size in 1...13
+    .mx-{$size}
+      _generate-margin-x($size)
+
+:root
+  for $size in 1...13
+    .my-{$size}
+      _generate-margin-y($size)
