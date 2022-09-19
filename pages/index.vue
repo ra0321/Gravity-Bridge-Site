@@ -12,7 +12,5 @@
     <section-questions />
   </main>
 </template>
-
 <script></script>
-
 <style lang="stylus" scoped></style>
